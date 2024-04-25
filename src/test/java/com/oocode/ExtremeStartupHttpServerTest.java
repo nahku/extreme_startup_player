@@ -15,7 +15,7 @@ public class ExtremeStartupHttpServerTest {
     public void canAnswerMyName() throws Exception {
         var contents = new SimpleHttpClient().readUrl("http://127.0.0.1:9123?q=What+is+your+name%3F");
 
-        assertThat(contents, equalTo("Someone"));
+        assertThat(contents, equalTo("ns"));
     }
 
     @Test

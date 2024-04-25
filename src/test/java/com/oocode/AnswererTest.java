@@ -10,6 +10,6 @@ public class AnswererTest {
     public void canAnswerMyName() {
         var contents = new Answerer().answerFor("What is your name?");
 
-        assertThat(contents, equalTo("Someone"));
+        assertThat(contents, equalTo("ns"));
     }
 }
