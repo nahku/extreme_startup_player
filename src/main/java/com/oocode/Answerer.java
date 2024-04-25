@@ -31,6 +31,17 @@ public class Answerer {
             return Integer.toString(product);
         }
 
+        if (question.startsWith("Which of the following numbers is both a square and a cube:")) {
+            var numbers = getNumbersFromString(question);
+            for(int i: numbers){
+                var root = Math.sqrt(i);
+                var cuberoot = Math.cbrt(i);
+                if (root%1 == 0 && cuberoot%1 == 0){
+                    return Integer.toString(i);
+                }
+            }
+        }
+
 
         //"What is (\\d+) plus (\\d+)?"
 
