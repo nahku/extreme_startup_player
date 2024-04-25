@@ -54,4 +54,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("77"));
     }
+
+    @Test
+    public void canAnswerPower() {
+        var contents = new Answerer().answerFor("What is 2 to the power of 3?");
+
+        assertThat(contents, equalTo("8"));
+    }
 }

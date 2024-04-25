@@ -7,6 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
+import static java.lang.Math.pow;
+
 public class Answerer {
     public String answerFor(String question) {
         question = question.replace("?", "");
@@ -37,6 +39,13 @@ public class Answerer {
             return Integer.toString(product);
         }
 
+        Pattern power = Pattern.compile("What is (\\d+) to the power of (\\d+)");
+        if (power.matcher(question).find()) {
+            var numbers = getNumbersFromString(question);
+            var result = Double.toString(pow(numbers[0], numbers[1]));
+            return result.substring(0, result.length() - 2);
+        }
+
         if (question.startsWith("Which of the following numbers is both a square and a cube:")) {
             var numbers = getNumbersFromString(question);
             for(int i: numbers){
@@ -59,18 +68,12 @@ public class Answerer {
             return result.substring(0, result.length() - 2);
         }
 
-
-        //"What is (\\d+) plus (\\d+)?"
-
-        switch (question){
-            case "What is your name":
-                return "ns";
-            default:
-                return "Someone";
+        if (question.startsWith("What is your name")) {
+            return "ns";
         }
+
+        return "Not answered";
     }
-
-
 
     private int getMax(String s) {
         String numbers = s.split(":")[1].replace(" ","");
