@@ -1,6 +1,7 @@
 package com.oocode;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -55,10 +56,9 @@ public class Answerer {
         Pattern power = Pattern.compile("What is (\\d+) to the power of (\\d+)");
         if (power.matcher(question).find()) {
             var numbers = getNumbersFromString(question);
+            var p = BigInteger.valueOf(numbers[0]).pow(numbers[1]);
 
-            var p = pow(numbers[0], numbers[1]);
-
-            return BigDecimal.valueOf(p).toBigInteger().toString();
+            return p.toString();
         }
 
         if (question.startsWith("Which of the following numbers is both a square and a cube:")) {
@@ -89,6 +89,29 @@ public class Answerer {
 
         return "Not answered";
     }
+//
+//    private String addmult(int[] numbers, String question) {
+//        Pattern p = Pattern.compile("multiplied by|plus|minus");
+//        Matcher m = p.matcher(question);
+//        int result=numbers[0];
+//        ArrayList<String> commands = new ArrayList<>();
+//        while (m.find()) {
+//            switch m.group(){
+//                case "multiplied by":
+//                    result*=numbers[1];
+//
+//            }
+//            numbers.add(Integer.parseInt(m.group()));
+//        }
+//
+//        if (power.matcher(question).find()) {
+//            var numbers = getNumbersFromString(question);
+//
+//            var p = pow(numbers[0], numbers[1]);
+//
+//            return BigDecimal.valueOf(p).toBigInteger().toString();
+//        }
+//    }
 
     private int getMax(String s) {
         String numbers = s.split(":")[1].replace(" ","");

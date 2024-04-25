@@ -82,4 +82,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("3559"));
     }
+
+    @Test
+    public void canAnswerPower3() {
+        var contents = new Answerer().answerFor("What is 33 to the power of 13?");
+
+        assertThat(contents, equalTo("55040353993448503713"));
+    }
 }
