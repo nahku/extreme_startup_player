@@ -97,6 +97,13 @@ public class Answerer {
             }
         }
 
+        if (question.startsWith("What is the scrabble score of")) {
+
+            var wordList = question.split(" ");
+            var lastWord = wordList[wordList.length-1];
+            return ScrabbleScore.score(lastWord.toUpperCase());
+        }
+
         if (question.startsWith("What is your name")) {
             return "ns";
         }

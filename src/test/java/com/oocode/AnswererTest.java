@@ -96,4 +96,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("married"));
     }
+
+    @Test
+    public void canAnswerScrabble() {
+        var contents = new Answerer().answerFor("What is the scrabble score of cloud?");
+
+        assertThat(contents, equalTo("8"));
+    }
 }
