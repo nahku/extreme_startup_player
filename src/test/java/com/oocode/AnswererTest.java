@@ -89,4 +89,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("55040353993448503713"));
     }
+
+    @Test
+    public void canAnswerAnagram() {
+        var contents = new Answerer().answerFor("Which of the following is an anagram of admirer: border, random, dairy, forgot, married?");
+
+        assertThat(contents, equalTo("married"));
+    }
 }

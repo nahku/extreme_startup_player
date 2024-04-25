@@ -83,6 +83,20 @@ public class Answerer {
             return result.substring(0, result.length() - 2);
         }
 
+        if (question.startsWith("Which of the following is an anagram of")) {
+            var firstWord = question.split(":")[0];
+            var firstWordList = firstWord.split(" ");
+            firstWord = firstWordList[firstWordList.length-1];
+
+            var wordString = question.split(": ")[1];
+            var wordList = wordString.split(", ");
+            for (String word:wordList) {
+                if (isAnagram(firstWord, word)){
+                    return word;
+                }
+            }
+        }
+
         if (question.startsWith("What is your name")) {
             return "ns";
         }
@@ -112,6 +126,22 @@ public class Answerer {
 //            return BigDecimal.valueOf(p).toBigInteger().toString();
 //        }
 //    }
+
+    private boolean isAnagram(String firstWord, String secondWord) {
+
+        for (int i = 0; i < firstWord.length(); i++) {
+            StringBuilder s = new StringBuilder(secondWord);
+            var c = firstWord.charAt(i);
+            var at = String.valueOf(s).indexOf(c);
+            if(at == -1){
+                return false;
+            }
+            else {
+                secondWord = String.valueOf(s.deleteCharAt(at));
+            }
+        }
+        return true;
+    }
 
     private int getMax(String s) {
         String numbers = s.split(":")[1].replace(" ","");
