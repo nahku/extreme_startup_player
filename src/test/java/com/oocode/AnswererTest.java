@@ -12,4 +12,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("ns"));
     }
+
+    @Test
+    public void canAnswerLargestNumber() {
+        var contents = new Answerer().answerFor("Which of the following numbers is the largest: 61, 34, 86?");
+
+        assertThat(contents, equalTo("86"));
+    }
 }

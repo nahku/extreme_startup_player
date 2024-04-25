@@ -20,7 +20,7 @@ public class Answerer {
     }
 
     private int getMax(String s) {
-        String numbers = s.split(":")[1];
+        String numbers = s.split(":")[1].replace(" ","");
         int[] singleNumbers = Arrays.stream(numbers.split(",")).mapToInt(Integer::parseInt).toArray();
         return Arrays.stream(singleNumbers)
                 .max()
