@@ -98,6 +98,14 @@ public class AnswererTest {
     }
 
     @Test
+    public void canAnswerAnagram2() {
+        var contents = new Answerer().answerFor("Which of the following is an anagram of listen: enlists, google, silent, banana?");
+
+        assertThat(contents, equalTo("silent"));
+    }
+
+
+    @Test
     public void canAnswerScrabble() {
         var contents = new Answerer().answerFor("What is the scrabble score of cloud?");
 

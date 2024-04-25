@@ -147,7 +147,10 @@ public class Answerer {
                 secondWord = String.valueOf(s.deleteCharAt(at));
             }
         }
-        return true;
+        if (secondWord.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     private int getMax(String s) {
