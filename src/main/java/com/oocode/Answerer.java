@@ -1,5 +1,6 @@
 package com.oocode;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -42,7 +43,10 @@ public class Answerer {
         Pattern power = Pattern.compile("What is (\\d+) to the power of (\\d+)");
         if (power.matcher(question).find()) {
             var numbers = getNumbersFromString(question);
-            return Integer.toString((int) pow(numbers[0], numbers[1]));
+
+            var p = pow(numbers[0], numbers[1]);
+
+            return BigDecimal.valueOf(p).toBigInteger().toString();
         }
 
         if (question.startsWith("Which of the following numbers is both a square and a cube:")) {
