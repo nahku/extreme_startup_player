@@ -26,4 +26,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("64"));
     }
+
+    @Test
+    public void canAnswerMultiply() {
+        var contents = new Answerer().answerFor("What is 57 multiplied by 40?");
+
+        assertThat(contents, equalTo("2280"));
+    }
 }

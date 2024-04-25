@@ -21,6 +21,17 @@ public class Answerer {
             return Integer.toString(IntStream.of(numbers).sum());
         }
 
+        Pattern multiply = Pattern.compile("What is (\\d+) multiplied by (\\d+)");
+        if (multiply.matcher(question).find()) {
+            var numbers = getNumbersFromString(question);
+            int product=1;
+            for(int i: numbers){
+                product*=i;
+            }
+            return Integer.toString(product);
+        }
+
+
         //"What is (\\d+) plus (\\d+)?"
 
         switch (question){
