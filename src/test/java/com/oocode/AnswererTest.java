@@ -75,4 +75,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("2148"));
     }
+
+    @Test
+    public void canAnswerMultAdd() {
+        var contents = new Answerer().answerFor("What is 31 plus 72 multiplied by 49?");
+
+        assertThat(contents, equalTo("3559"));
+    }
 }

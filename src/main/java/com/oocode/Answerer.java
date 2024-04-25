@@ -24,6 +24,12 @@ public class Answerer {
             return Integer.toString(numbers[0]*numbers[1]+numbers[2]);
         }
 
+        Pattern addmult = Pattern.compile("What is (\\d+) plus (\\d+) multiplied by ");
+        if (addmult.matcher(question).find()) {
+            var numbers = getNumbersFromString(question);
+            return Integer.toString(numbers[0]+numbers[1]*numbers[2]);
+        }
+
         Pattern addition = Pattern.compile("What is (\\d+) plus (\\d+)");
         if (addition.matcher(question).find()) {
             var numbers = getNumbersFromString(question);
