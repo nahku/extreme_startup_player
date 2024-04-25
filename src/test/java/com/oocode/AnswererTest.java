@@ -68,4 +68,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("1838265625"));
     }
+
+    @Test
+    public void canAnswerAddMult() {
+        var contents = new Answerer().answerFor("What is 65 multiplied by 32 plus 68?");
+
+        assertThat(contents, equalTo("2148"));
+    }
 }

@@ -18,6 +18,12 @@ public class Answerer {
             return Integer.toString(getMax(question));
         }
 
+        Pattern multadd = Pattern.compile("What is (\\d+) multiplied by (\\d+) plus ");
+        if (multadd.matcher(question).find()) {
+            var numbers = getNumbersFromString(question);
+            return Integer.toString(numbers[0]*numbers[1]+numbers[2]);
+        }
+
         Pattern addition = Pattern.compile("What is (\\d+) plus (\\d+)");
         if (addition.matcher(question).find()) {
             var numbers = getNumbersFromString(question);
