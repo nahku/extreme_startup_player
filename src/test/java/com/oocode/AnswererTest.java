@@ -61,4 +61,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("8"));
     }
+
+    @Test
+    public void canAnswerPower2() {
+        var contents = new Answerer().answerFor("What is 35 to the power of 6?");
+
+        assertThat(contents, equalTo("1838265625"));
+    }
 }

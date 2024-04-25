@@ -42,8 +42,7 @@ public class Answerer {
         Pattern power = Pattern.compile("What is (\\d+) to the power of (\\d+)");
         if (power.matcher(question).find()) {
             var numbers = getNumbersFromString(question);
-            var result = Double.toString(pow(numbers[0], numbers[1]));
-            return result.substring(0, result.length() - 2);
+            return Integer.toString((int) pow(numbers[0], numbers[1]));
         }
 
         if (question.startsWith("Which of the following numbers is both a square and a cube:")) {
