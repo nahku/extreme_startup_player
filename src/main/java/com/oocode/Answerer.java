@@ -42,6 +42,17 @@ public class Answerer {
             }
         }
 
+        if (question.startsWith("Which of the following numbers are primes:")) {
+            var numbers = getNumbersFromString(question);
+            String result = "";
+            for(int i: numbers){
+                if (isPrime(i)){
+                    result += i + ", ";
+                }
+            }
+            return result.substring(0, result.length() - 2);
+        }
+
 
         //"What is (\\d+) plus (\\d+)?"
 
@@ -72,4 +83,19 @@ public class Answerer {
         }
         return numbers.stream().mapToInt(Integer::valueOf).toArray();
     }
+
+    private static boolean isPrime(int num)
+    {
+        if(num<=1)
+        {
+            return false;
+        }
+        for(int i=2;i<=num/2;i++)
+        {
+            if((num%i)==0)
+                return  false;
+        }
+        return true;
+    }
+
 }

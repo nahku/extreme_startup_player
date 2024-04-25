@@ -40,4 +40,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("729"));
     }
+
+    @Test
+    public void canAnswerPrimes() {
+        var contents = new Answerer().answerFor("Which of the following numbers are primes: 66, 19, 61, 33, 2?");
+
+        assertThat(contents, equalTo("19, 61, 2"));
+    }
 }
