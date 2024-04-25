@@ -19,4 +19,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("86"));
     }
+
+    @Test
+    public void canAnswerAddition() {
+        var contents = new Answerer().answerFor("What is 38 plus 26?");
+
+        assertThat(contents, equalTo("64"));
+    }
 }
