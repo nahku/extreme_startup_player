@@ -47,4 +47,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("19, 61, 2"));
     }
+
+    @Test
+    public void canAnswerSub() {
+        var contents = new Answerer().answerFor("What is 81 minus 4?");
+
+        assertThat(contents, equalTo("77"));
+    }
 }

@@ -21,6 +21,12 @@ public class Answerer {
             return Integer.toString(IntStream.of(numbers).sum());
         }
 
+        Pattern sub = Pattern.compile("What is (\\d+) minus (\\d+)");
+        if (sub.matcher(question).find()) {
+            var numbers = getNumbersFromString(question);
+            return Integer.toString(numbers[0] - numbers[1]);
+        }
+
         Pattern multiply = Pattern.compile("What is (\\d+) multiplied by (\\d+)");
         if (multiply.matcher(question).find()) {
             var numbers = getNumbersFromString(question);
